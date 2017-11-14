@@ -1,6 +1,6 @@
 # vagrant-vault-cluster
 
-This repo contains scripts and Vagrantfiles to spin up either a single node with Vault + Consul or a 3 node setup with Vault + Consul
+This repo contains scripts as well as a Vagrantfile to spin up either a single node with Vault + Consul or a 3 node setup with Vault + Consul
 
 ## Single node instructions
 Within this repository diretory as working directory execute the following:
@@ -42,7 +42,7 @@ To install, perform the following steps in order.
 1. If using Enterprise binaries replace the Vault and Consul binaries with their enterprise equivalents. 
 1. Copy and execute `scripts\install-systemd-scripts.sh`
 1. Copy `scripts\install-configs.sh` to server. 
-	1. Edit the relevant Consul section with a list of the cluster IP addresses in `retry_join`[documentation link](https://www.consul.io/docs/agent/options.html#retry_join)
+	1. Edit the relevant Consul section (1 or 3 servers) with a list of the server IP addresses in `retry_join`[documentation link](https://www.consul.io/docs/agent/options.html#retry_join)
  	1. Edit the relevant Consul section with the `advertise_addr` specific to each server. Consul [documentation link](https://www.consul.io/docs/agent/options.html#advertise_addr)
 1. Execute `install-configs.sh 1` or `install-configs.sh 3` for appropriate number of Consul servers. 
 

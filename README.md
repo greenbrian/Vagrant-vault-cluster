@@ -31,12 +31,13 @@ vagrant ssh vault1
 ---
 
 
-
 ## Using this guide as a reference for installation on servers?
 
 To install, perform the following steps in order. 
 
 1. Copy and execute `scripts\base.sh` 
+1. Copy and execute `setup-user.sh consul` (consul as an argument)
+1. Copy and execute `setup-user.sh vault`  (vault as argument)
 1. Copy and execute `scripts\install-consul.sh`
 1. Copy and execute `scripts\install-vault.sh` 
 1. If using Enterprise binaries replace the Vault and Consul binaries with their enterprise equivalents. 
@@ -46,6 +47,7 @@ To install, perform the following steps in order.
  	1. Edit the relevant Consul section with the `advertise_addr` specific to each server. Consul [documentation link](https://www.consul.io/docs/agent/options.html#advertise_addr)
 1. Execute `install-configs.sh 1` or `install-configs.sh 3` for appropriate number of Consul servers. 
 
+(note the IP address determination in install-configs.sh may be a bit problematic in some systems)
 
 Last: To start services, execute the following on each node:
 

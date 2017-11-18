@@ -36,13 +36,13 @@ Vagrant.configure("2") do |config|
     vault3.vm.network :private_network, ip: "192.168.50.152"
     vault3.vm.network :forwarded_port, guest: 8200, host: 8202, auto_correct: true
   end
-  config.vm.provision "shell", path: "../scripts/setup-user.sh", args: "vault"
-  config.vm.provision "shell", path: "../scripts/setup-user.sh", args: "consul"
-  config.vm.provision "shell", path: "../scripts/base.sh"
-  config.vm.provision "shell", path: "../scripts/install-vault.sh"
-  config.vm.provision "shell", path: "../scripts/install-consul.sh"
-  config.vm.provision "shell", path: "../scripts/install-systemd-scripts.sh"
-  config.vm.provision "shell", path: "../scripts/install-configs.sh", args: server_count
+  config.vm.provision "shell", path: "scripts/setup-user.sh", args: "vault"
+  config.vm.provision "shell", path: "scripts/setup-user.sh", args: "consul"
+  config.vm.provision "shell", path: "scripts/base.sh"
+  config.vm.provision "shell", path: "scripts/install-vault.sh"
+  config.vm.provision "shell", path: "scripts/install-consul.sh"
+  config.vm.provision "shell", path: "scripts/install-systemd-scripts.sh"
+  config.vm.provision "shell", path: "scripts/install-configs.sh", args: server_count
   config.vm.provision "shell", inline: "sudo systemctl enable consul.service"
   config.vm.provision "shell", inline: "sudo systemctl start consul"
   config.vm.provision "shell", inline: "sudo systemctl enable vault.service"

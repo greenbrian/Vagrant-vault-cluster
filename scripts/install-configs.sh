@@ -46,7 +46,7 @@ sudo bash -c "cat >/etc/consul.d/consul.json" << EOF
   "bootstrap_expect": 3,
   "datacenter": "datacenter-name",                               
   "retry_join": ["192.168.50.150","192.168.50.151","192.168.50.152"],
-  "advertise_addr": "$(/usr/sbin/ifconfig enp0s8 | grep 'inet ' | awk '{print $2}')",
+  "advertise_addr": "$(hostname -I |grep -Eo '192\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')",
   "leave_on_terminate": true,
   "data_dir": "/opt/consul/data",
   "client_addr": "0.0.0.0",

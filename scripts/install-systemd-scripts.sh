@@ -82,6 +82,12 @@ EOF
 
 consul_online_script () {
 sudo bash -c "cat >/usr/bin/consul-online.sh" << 'EOF'
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+CONSUL_ADDRESS=${1:-"127.0.0.1:8500"}
 # waitForConsulToBeAvailable loops until the local Consul agent returns a 200
 # response at the /v1/operator/raft/configuration endpoint.
 #
